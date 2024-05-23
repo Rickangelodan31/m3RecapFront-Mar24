@@ -1,15 +1,18 @@
-import { Navigate } from 'react-router-dom'
-import { SessionContext } from '../contexts/SessionContext'
-import { useContext } from 'react'
+import { useContext } from "react";
+import { Navigate } from "react-router-dom";
+import { SessionContext } from "../contexts/SessionContext";
 
 const PrivateRoute = ({ children }) => {
-  const { token } = useContext(SessionContext)
+  const { token, isLoading } = useContext(SessionContext);
 
-  if (!token) {
-    return <Navigate to='/login' />
+  if (isLoading) {
+    return <h1>Loading ...</h1>;
   }
 
-  return children
-}
+  if (!token) {
+    return <Navigate to="/login" />;
+  }
+  return children;
+};
 
-export default PrivateRoute
+export default PrivateRoute;

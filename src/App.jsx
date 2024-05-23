@@ -4,6 +4,9 @@ import Navbar from './components/Navbar'
 import LoginPage from './pages/LoginPage'
 import PrivateRoute from './components/PrivateRoute'
 import MessageBox from "./pages/MessageBox";
+import ProfilePage from './pages/ProfilePage'
+import TechCourseList from './pages/TechCourseList';
+
 
 
 function App() {
@@ -12,21 +15,20 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<h1>Home page</h1>} />
-        {/* auth:
-          - Signup
-
-          - Login
-        */}
+  
         <Route path='/signup' element={<SignupPage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route
           path='/profile'
-          element={
+          element={ 
             <PrivateRoute>
+              <ProfilePage />
               <h1>Profile</h1>
             </PrivateRoute>
           }
         />
+         
+        <Route path="/techCourses" element={<TechCourseList />} />
         <Route path="/message" element={<MessageBox />} />
         {/* Route to display one book */}
         {/* Route to create one book */}
