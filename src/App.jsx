@@ -3,6 +3,8 @@ import SignupPage from './pages/SignupPage'
 import Navbar from './components/Navbar'
 import LoginPage from './pages/LoginPage'
 import PrivateRoute from './components/PrivateRoute'
+import MessageBox from "./pages/MessageBox";
+
 
 function App() {
   return (
@@ -25,7 +27,7 @@ function App() {
             </PrivateRoute>
           }
         />
-        {/* Route to display all books */}
+        <Route path="/message" element={<MessageBox />} />
         {/* Route to display one book */}
         {/* Route to create one book */}
         {/* Route to update one book */}
